@@ -1,0 +1,199 @@
+{
+  "$schema": "https://schema.management.azure.com/schemas/2019-04-01/deploymentParameters.json#",
+  "contentVersion": "1.0.0.0",
+  "parameters": {
+    "aksClusterNetworkPlugin": {
+      "value": "azure"
+    },
+    "aksClusterNetworkPolicy": {
+      "value": "azure"
+    },
+    "aksClusterPodCidr": {
+      "value": "10.244.0.0/16"
+    },
+    "aksClusterServiceCidr": {
+      "value": "172.16.0.0/16"
+    },
+    "aksClusterDnsServiceIP": {
+      "value": "172.16.0.10"
+    },
+    "aksClusterDockerBridgeCidr": {
+      "value": "172.17.0.1/16"
+    },
+    "aksClusterOutboundType": {
+      "value": "loadBalancer"
+    },
+    "aksClusterKubernetesVersion": {
+      "value": "1.24.0"
+    },
+    "aksClusterAdminUsername": {
+      "value": "azadmin"
+    },
+    "aksClusterSshPublicKey": {
+      "reference": {
+        "keyVault": {
+          "id": "/subscriptions/1a45a694-ae23-4650-9774-89a571c462f6/resourceGroups/BaboKeyVaultResourceGroup/providers/Microsoft.KeyVault/vaults/BaboKeyVault"
+        },
+        "secretName": "aksClusterSshPublicKey"
+      }
+    },
+    "aadProfileManaged": {
+      "value": true
+    },
+    "aadProfileEnableAzureRBAC": {
+      "value": true
+    },
+    "aadProfileAdminGroupObjectIDs": {
+      "value": [
+        "bc85459c-e71b-44d6-b888-55395132ad0f",
+        "036f1f79-b9c8-4a98-869f-018aa2d5a716",
+        "6d04c502-bcb0-477d-b2ee-5c85be6d3d96",
+        "f5c698f3-e1ed-40e5-8561-c613e652448d"
+      ]
+    },
+    "systemNodePoolName": {
+      "value": "system"
+    },
+    "systemNodePoolVmSize": {
+      "value": "Standard_D4s_v3"
+    },
+    "systemNodePoolOsDiskSizeGB": {
+      "value": 80
+    },
+    "systemNodePoolAgentCount": {
+      "value": 3
+    },
+    "systemNodePoolMaxCount": {
+      "value": 5
+    },
+    "systemNodePoolMinCount": {
+      "value": 3
+    },
+    "systemNodePoolNodeTaints": {
+      "value": [
+        "CriticalAddonsOnly=true:NoSchedule"
+      ]
+    },
+    "userNodePoolName": {
+      "value": "user"
+    },
+    "userNodePoolVmSize": {
+      "value": "Standard_D4s_v3"
+    },
+    "userNodePoolOsDiskSizeGB": {
+      "value": 80
+    },
+    "userNodePoolAgentCount": {
+      "value": 3
+    },
+    "userNodePoolMaxCount": {
+      "value": 5
+    },
+    "userNodePoolMinCount": {
+      "value": 3
+    },
+    "virtualNetworkAddressPrefixes": {
+      "value": "10.0.0.0/8"
+    },
+    "aksSubnetName": {
+      "value": "AksSubnet"
+    },
+    "aksSubnetAddressPrefix": {
+      "value": "10.240.0.0/16"
+    },
+    "vmSubnetName": {
+      "value": "VmSubnet"
+    },
+    "vmSubnetAddressPrefix": {
+      "value": "10.242.0.0/24"
+    },
+    "bastionSubnetAddressPrefix": {
+      "value": "10.242.1.0/24"
+    },
+    "logAnalyticsSku": {
+      "value": "PerGB2018"
+    },
+    "logAnalyticsRetentionInDays": {
+      "value": 60
+    },
+    "vmName": {
+      "value": "TestVm"
+    },
+    "vmSize": {
+      "value": "Standard_F4s_v2"
+    },
+    "imagePublisher": {
+      "value": "Canonical"
+    },
+    "imageOffer": {
+      "value": "UbuntuServer"
+    },
+    "imageSku": {
+      "value": "18.04-LTS"
+    },
+    "authenticationType": {
+      "value": "sshPublicKey"
+    },
+    "vmAdminUsername": {
+      "value": "azadmin"
+    },
+    "vmAdminPasswordOrKey": {
+      "reference": {
+        "keyVault": {
+          "id": "/subscriptions/1a45a694-ae23-4650-9774-89a571c462f6/resourceGroups/BaboKeyVaultResourceGroup/providers/Microsoft.KeyVault/vaults/BaboKeyVault"
+        },
+        "secretName": "vmAdminSshPublicKey"
+      }
+    },
+    "diskStorageAccounType": {
+      "value": "Premium_LRS"
+    },
+    "numDataDisks": {
+      "value": 1
+    },
+    "osDiskSize": {
+      "value": 50
+    },
+    "dataDiskSize": {
+      "value": 50
+    },
+    "dataDiskCaching": {
+      "value": "ReadWrite"
+    },
+    "aksClusterEnablePrivateCluster": {
+      "value": false
+    },
+    "aksEnablePrivateClusterPublicFQDN":{
+      "value": false
+    },
+    "podIdentityProfileEnabled": {
+      "value": false
+    },
+    "keyVaultObjectIds": {
+      "value": [
+        "0c5267b2-01f3-4a59-970e-0d9218d5412e"
+      ]
+    },
+    "openServiceMeshEnabled": {
+      "value": true
+    },
+    "kedaEnabled": {
+      "value": true
+    },
+    "systemNodePoolKubeletDiskType": {
+      "value": "OS"
+    },
+    "userNodePoolKubeletDiskType": {
+      "value": "OS"
+    },
+    "systemNodePoolOsDiskType": {
+      "value": "Ephemeral"
+    },
+    "userNodePoolOsDiskType": {
+      "value": "Ephemeral"
+    },
+    "deploymentScriptUri": {
+      "value": "https://paolosalvatori.blob.core.windows.net/scripts/install-helm-charts.sh"
+    }
+  }
+}
