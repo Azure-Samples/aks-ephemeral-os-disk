@@ -31,7 +31,7 @@ azureDeploy: "https://raw.githubusercontent.com/Azure-Samples/aks-ephemeral-os-d
 
 # Everything you want to know about ephemeral OS disks and AKS
 
-This article plus sample analyzes the available configuration settings for the [ephemeral OS disk](https://docs.microsoft.com/en-us/azure/aks/cluster-configuration#ephemeral-os) in [Azure Kubernetes Service](https://docs.microsoft.com/en-us/azure/aks/intro-kubernetes) (AKS). With ephemeral OS disks, you see lower read/write latency on the OS disk of AKS agent nodes since the disk is locally attached. You will also get faster cluster operations like scale or upgrade thanks to faster re-imaging and boot times. This repository contains Bicep modules to deploy and test the combinations described in the remainder of the article. For more information, see the article [Everything you wanted to know on Ephemeral OS disks and AKS](https://www.google.com).
+This article plus sample analyzes the available configuration settings for the [ephemeral OS disk](https://docs.microsoft.com/en-us/azure/aks/cluster-configuration#ephemeral-os) in [Azure Kubernetes Service](https://docs.microsoft.com/en-us/azure/aks/intro-kubernetes) (AKS). With ephemeral OS disks, you see lower read/write latency on the OS disk of AKS agent nodes since the disk is locally attached. You will also get faster cluster operations like scale or upgrade thanks to faster re-imaging and boot times. This repository contains Bicep modules to deploy and test the combinations described in the remainder of the article. For more information, see the article [Everything you wanted to know on Ephemeral OS disks and AKS](https://techcommunity.microsoft.com/t5/fasttrack-for-azure/everything-you-want-to-know-about-ephemeral-os-disks-and-azure/ba-p/3565605#M205).
 
 ## Architecture
 
@@ -259,7 +259,7 @@ Another setting that you can specify is `kubeletDiskType`. This parameter determ
 I conducted some tests and tried out all the possible combinations of the values for the `kubeletDiskType` and `osDiskType` parameters to understand how the location of container images, emptyDir volumes, container images, and container logs varies depending on the current
 selection.
 
-I created four different AKS clusters with the `Standard_D8s_v3 VM` size and four AKS clusters with the `Standard_E16bds_v5` VM size and conducted some tests. You can read the results of my tests in the following post: [Everything you wanted to know on Ephemeral OS disks and AKS](https://www.google.com).
+I created four different AKS clusters with the `Standard_D8s_v3 VM` size and four AKS clusters with the `Standard_E16bds_v5` VM size and conducted some tests. You can read the results of my tests in the following post: [Everything you wanted to know on Ephemeral OS disks and AKS](https://techcommunity.microsoft.com/t5/fasttrack-for-azure/everything-you-want-to-know-about-ephemeral-os-disks-and-azure/ba-p/3565605#M205).
 
 ## Observations
 
@@ -392,10 +392,10 @@ spec:
 - [KubeletDiskType | Azure REST API Documentation](https://docs.microsoft.com/en-us/rest/api/aks/managed-clusters/create-or-update#kubeletdisktype)
 - [Microsoft.ContainerService/managedClusters/agentPools Resource Provider | Azure Documentation](https://docs.microsoft.com/en-us/azure/templates/microsoft.containerservice/managedclusters/agentpools?tabs=bicep)
 
-## Call to Action
-
-If you want to provide a feedback or suggest an improvement, please submit an issue or a pull request on this repository. If you found this article and companion sample any useful, please like the repo and article [here](https://www.google.com), thanks!
-
 ## Conclusion
 
 The recommended configuration is using the [osDiskType](https://docs.microsoft.com/en-us/azure/templates/microsoft.containerservice/managedclusters?tabs=bicep) equal to `Ephemeral`, [kubeletDiskType](https://github.com/Azure/azure-rest-api-specs/blob/5582a35deb1bfa4aa22bac8f1d51b7934ead94ac/specification/containerservice/resource-manager/Microsoft.ContainerService/stable/2021-02-01/managedClusters.json#L3846-L3857) equal to `OS`, and the [osDiskSize](https://docs.microsoft.com/en-us/azure/templates/microsoft.containerservice/managedclusters?tabs=bicep) equal to the maximum VM cache or temporary storage size, depending on the VM series selected for the agent nodes.
+
+## Thanks
+
+If you want to provide a feedback or suggest an improvement, please submit an issue or a pull request on this repository. If you found this article and companion sample useful, please like the repo and related [article](https://techcommunity.microsoft.com/t5/fasttrack-for-azure/everything-you-want-to-know-about-ephemeral-os-disks-and-azure/ba-p/3565605#M205), thanks!
