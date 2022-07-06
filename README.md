@@ -196,9 +196,7 @@ supports the following features:
 - [Ephemeral OS Disks](https://docs.microsoft.com/en-us/azure/virtual-machines/ephemeral-os-disks): Supported
 - Nested virtualization: Supported
 
-The last generation VM series don't have both a VM cache and temporary
-storage, they only have a larger temporary storage as shown in the
-following table.
+The latest generation of VM series does not have a dedicated cache, but only temporary storage. as shown in the following table.
 
 | Size | vCPU | Memory: GiB | Temp storage (SSD) GiB | Max data disks | Max temp storage throughput: IOPS / MBps | Max uncached storage throughput: IOPS / MBps | Max burst uncached disk throughput: IOPS/MBp | Max NICs | Network bandwidth |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
