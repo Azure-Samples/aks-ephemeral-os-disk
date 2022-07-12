@@ -2,6 +2,7 @@
 page_type: sample
 languages:
 - azurecli
+- bicep
 - bash
 - csharp
 - yaml
@@ -21,8 +22,6 @@ products:
 - azure-monitor
 - azure-log-analytics
 - azure-virtual-machines
-- azure-application-gateway
-
 name:  Everything you want to know about ephemeral OS disks and AKS
 description: This article plus sample analyzes the available configuration settings for the ephemeral OS disk in Azure Kubernetes Service (AKS).  
 urlFragment: aks-ephemeral-os-disk
